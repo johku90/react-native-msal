@@ -68,6 +68,8 @@ export class B2CClient {
     }
 
     try {
+      this.pca.cancelCurrentWebInteraction();
+
       // If we don't provide an authority, the PCA will use the one we passed to it when we created it
       // (the sign in sign up policy)
       const result = await this.pca.acquireToken(params);

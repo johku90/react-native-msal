@@ -56,6 +56,14 @@ export class PublicClientApplication implements IPublicClientApplication {
     })();
   }
 
+  public async cancelCurrentWebInteraction() {
+    this.validateIsInitialized();
+    return await Platform.select({
+      ios: () => RNMSAL.cancelCurrentWebInteraction(''),
+      default: () => RNMSAL.cancelCurrentWebInteraction(),
+    })();
+  }
+
   private validateIsInitialized() {
     if (!this.isInitialized) {
       throw new Error(

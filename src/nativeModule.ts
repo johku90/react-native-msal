@@ -17,6 +17,7 @@ type RNMSALNativeModule = {
   getAccount(accountIdentifier: string): Promise<MSALAccount | undefined>;
   removeAccount(account: MSALAccount): Promise<boolean>;
   signout(params: MSALSignoutParams): Promise<boolean>;
+  cancelCurrentWebInteraction(cancelParam?: string): Promise<void>;
 };
 
 const RNMSAL: RNMSALNativeModule = NativeModules.RNMSAL;

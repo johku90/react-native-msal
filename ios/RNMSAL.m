@@ -215,6 +215,19 @@ RCT_REMAP_METHOD(getAccount,
     }
 }
 
+RCT_REMAP_METHOD(cancelCurrentWebInteraction,
+                 cancelParam:(NSString*)cancelParam
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
+{
+    @try {
+        [MSALPublicClientApplication cancelCurrentWebAuthSession];
+        resolve(nil);
+    } @catch(NSError *error) {
+        reject([[NSString alloc] initWithFormat:@"%d", (int)error.code], error.description, error);
+    }
+}
+
 RCT_REMAP_METHOD(removeAccount,
                  account:(NSDictionary*)account
                  resolver:(RCTPromiseResolveBlock)resolve

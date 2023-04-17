@@ -107,6 +107,10 @@ export class PublicClientApplication implements IPublicClientApplication {
     return true;
   }
 
+  public cancelCurrentWebInteraction() {
+    console.log('not implemented');
+  }
+
   public async signOut(params: MSALSignoutParams) {
     return await this.removeAccount(params.account);
   }

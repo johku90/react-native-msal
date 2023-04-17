@@ -40,6 +40,8 @@ export interface IPublicClientApplication {
    */
   removeAccount(account: MSALAccount): Promise<boolean>;
 
+  cancelCurrentWebInteraction(cancelParam?: string): void;
+
   /**
    * Removes all tokens from the cache for this application for the provided
    * account. Additionally, this will remove the account from the system browser.
